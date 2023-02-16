@@ -23,6 +23,7 @@ const openNav = () => {
           <a href="#home" class="text-decoration-none text-white w-75 p-4 text-center">Home</a>
           <a href="#about" class="text-decoration-none text-white w-75 p-4 border-top text-center">About</a>
           <a href="#projects" class="text-decoration-none text-white w-75 p-4 border-top text-center">My Projects</a>
+          <a href="#contact" class="text-decoration-none text-white w-75 p-4 border-top text-center">Contact</a>
         </div>
         <div class="platforms-icons d-flex justify-content-center gap-5">
           <img src="./assets/img/icon-facebook.svg" alt="">
