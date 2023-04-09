@@ -38,6 +38,12 @@ body {
   position: relative;
 }
 
+section,
+header {
+  max-width: 90%;
+  margin: 0 auto;
+}
+
 section {
   opacity: 0;
   transition: 1s all ease-in-out;
@@ -163,6 +169,9 @@ header .header-img img {
 
 header .header-content {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: relative;
   right: 0px;
   animation: right-to-left-animation 1.2s 1;
@@ -174,6 +183,50 @@ header .header-content p {
   word-spacing: 2px;
   line-height: 25px;
   width: 45ch;
+}
+
+header .header-btn {
+  display: block;
+  position: relative;
+  width: fit-content;
+  text-decoration: none;
+  color: white;
+  padding: 5px 25px;
+  border: 2px solid #8b929e;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+header .header-btn::before,
+header .header-btn::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+  background-color: #8b929e;
+}
+
+header .header-btn::before {
+  border-bottom-right-radius: 80%;
+  border-top-right-radius: 80%;
+  left: 0;
+  top: 0;
+}
+
+header .header-btn::after {
+  border-top-left-radius: 80%;
+  border-bottom-left-radius: 80%;
+  right: 0;
+  top: 0;
+}
+
+header .header-btn:hover::after,
+header .header-btn:hover::before {
+  border-radius: 0;
+  width: 100%;
 }
 
 /* End of header section */
@@ -279,6 +332,7 @@ header .header-content p {
 
 #contact > p {
   opacity: 75%;
+  max-width: 650px;
   text-align: center;
   line-height: 25px;
 }
