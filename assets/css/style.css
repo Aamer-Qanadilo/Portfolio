@@ -797,7 +797,7 @@ body.light #projects .projects-list-container .project-card {
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 700px) {
   .navbar-section {
     padding: 15px 20px;
   }
