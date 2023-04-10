@@ -71,33 +71,45 @@ function reveal() {
   }
 }
 
-window.addEventListener("scroll", reveal);
+const box = document.querySelector(".header-bg");
 
-// var box = $(".header-bg .box");
-var box = document.querySelector(".header-bg");
+const layer = document.getElementById("home");
 
-var layer = document.getElementById("home");
-// $("#home");
+const headerContent = document.querySelector(".header-content");
+const headerImage = document.querySelector(".header-img");
 
 layer.addEventListener("mousemove", function (e) {
-  console.log("test");
-  var ivalueX = (e.pageX * -1) / 10;
-  var ivalueY = (e.pageY * -1) / 10;
-  var cvalueX = (e.pageX * -1) / 30;
-  var cvalueY = (e.pageY * -1) / 30;
-  console.log("ok");
-  // iphone.css('transform', 'translate3d('+ivalueX+'px,'+ivalueY+'px, 0)');
-  // box.css("transform", "translate3d(" + cvalueX + "px," + cvalueY + "px, 0)");
-  // box.
-  console.log(box.children);
+  let fastValueX = (e.pageX * -1) / 10;
+  let fastValueY = (e.pageY * -1) / 10;
+  let slowValueX = (e.pageX * -1) / 30;
+  let slowValueY = (e.pageY * -1) / 30;
+
+  headerContent.style.transform =
+    "translate3d(" + fastValueX + "px," + fastValueY + "px, 0)";
+
+  headerImage.style.transform =
+    "translate3d(" + slowValueX + "px," + slowValueY + "px, 0)";
+
   Array.from(box.children).forEach((child, index) => {
-    console.log(child);
-    if (index / 2 === 0) {
-      child.style.transform =
-        "translate3d(" + cvalueX + "px," + cvalueY + "px, 0)";
-    } else {
-      child.style.transform =
-        "translate3d(" + ivalueX + "px," + ivalueY + "px, 0)";
-    }
+    fastValueX = (e.pageX * -1) / (10 - index);
+    fastValueY = (e.pageY * -1) / (10 + index);
+    slowValueX = (e.pageX * -1) / (30 - index);
+    slowValueY = (e.pageY * -1) / (30 + index);
+
+    // if (index / 2 === 0) {
+    //   child.style.transform =
+    //     "translate3d(" + slowValueX + "px," + slowValueY + "px, 0)";
+    // } else {
+    // }
+    child.style.transform =
+      "translate3d(" + fastValueX + "px," + fastValueY + "px, 0)";
   });
 });
+
+window.addEventListener("scroll", reveal);
+
+window.onload = () => {
+  Array.from(box.children).forEach((child, index) => {
+    child.style.left = `${(index + 1) * 50}px`;
+  });
+};
