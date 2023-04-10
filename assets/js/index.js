@@ -39,6 +39,7 @@
 
 const navBtn = document.querySelector(".nav-bars-button");
 const navSelectors = document.querySelector(".navbar-selectors");
+const toggleBtn = document.getElementById("darkmode-toggle");
 
 navBtn.addEventListener("click", () => {
   navBtn.classList.toggle("active");
@@ -46,6 +47,10 @@ navBtn.addEventListener("click", () => {
 
 navSelectors.addEventListener("click", () => {
   navBtn.classList.toggle("active");
+});
+
+toggleBtn.addEventListener("change", () => {
+  document.body.classList.toggle("light");
 });
 
 function reveal() {

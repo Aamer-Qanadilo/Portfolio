@@ -29,6 +29,14 @@ body {
   overflow-x: hidden;
 }
 
+body.light {
+  --bgColor: #fbfbfd;
+  --secondaryBGColor: #000;
+  --textColor: #000;
+  --navbarColor: #838282;
+  color: #000;
+}
+
 .section-seperator {
   width: 80%;
   height: 1px;
@@ -75,7 +83,7 @@ section.active {
   height: 100%;
   background-color: transparent;
   cursor: pointer;
-  color: white;
+  color: var(--textColor);
 }
 
 .navbar-section .nav-bars-button .ham-box {
@@ -89,7 +97,7 @@ section.active {
   position: relative;
   width: 100%;
   height: 2px;
-  background-color: white;
+  background-color: var(--textColor);
   border-radius: var(--navbarButton);
   transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   transform: rotate(0deg);
@@ -102,7 +110,7 @@ section.active {
   position: absolute;
   right: 0;
   height: 2px;
-  background-color: white;
+  background-color: var(--textColor);
 }
 
 .navbar-section .nav-bars-button .nav-bars-button-inner::before {
@@ -142,6 +150,81 @@ section.active {
 .navbar-section .navbar-selectors li:hover a {
   color: #e34643;
   font-weight: 700;
+}
+
+/* Start of color toggle button */
+
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  width: 50px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background: #242424;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden;
+}
+label:after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  border-radius: 18px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+  transition: 0.3s;
+}
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+input:checked + label {
+  background: #ebebeb;
+}
+input:checked + label:after {
+  left: auto;
+  right: 3px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  /* transform: translateX(-100%); */
+}
+label:active:after {
+  width: 260px;
+}
+label svg {
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+label svg.sun {
+  right: 6px;
+  fill: #7e7e7e;
+  transition: 0.3s;
+}
+label svg.moon {
+  left: 6px;
+  fill: #fff;
+  transition: 0.3s;
+}
+input:checked + label svg.sun {
+  fill: #fff;
+}
+input:checked + label svg.moon {
+  fill: #7e7e7e;
 }
 
 /* End of Navbar Section */
@@ -190,7 +273,7 @@ header .header-btn {
   position: relative;
   width: fit-content;
   text-decoration: none;
-  color: white;
+  color: var(--textColor);
   padding: 5px 25px;
   border: 2px solid #8b929e;
   border-radius: 10px;
@@ -239,7 +322,7 @@ header .header-btn:hover::before {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: var(--bgColor);
+  /* background-color: var(--bgColor); */
 }
 
 #about .about-img {
@@ -302,7 +385,111 @@ header .header-btn:hover::before {
   justify-content: center;
 }
 
-#projects #carouselExampleIndicators {
+#projects .projects-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+#projects .projects-list-container .project-card {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  /* padding: 10px; */
+  overflow: hidden;
+  /* border-radius: 5px; */
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 15px -3px rgba(255, 255, 255, 0.07),
+    0 10px 20px -2px rgba(255, 255, 255, 0.04);
+  /* box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.744); */
+  /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.744); */
+  transition: all 0.2s ease-in-out;
+  bottom: 0;
+  /* flex-wrap: wrap; */
+}
+
+#projects .projects-list-container .project-card:nth-child(even) {
+  justify-content: end;
+}
+
+#projects .projects-list-container .project-card:hover {
+  /* bottom: 3px; */
+  box-shadow: none;
+  transform: scale(0.975);
+}
+
+#projects
+  .projects-list-container
+  .project-card:nth-child(even)
+  .project-card-img {
+  order: 1;
+}
+
+#projects .projects-list-container .project-card .project-card-img {
+  width: 35%;
+}
+
+#projects .projects-list-container .project-card .project-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: auto;
+  text-align: start;
+  /* min-width: 30%;
+  max-width: 40%; */
+  height: fit-content;
+  padding: 15px;
+  /* border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.062); */
+}
+
+#projects .projects-list-container .project-card .project-card-content h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+#projects .projects-list-container .project-card .project-card-content p {
+  max-width: 650px;
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin: 1.5rem 0;
+}
+
+#projects
+  .projects-list-container
+  .project-card
+  .project-card-content
+  .project-card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+#projects
+  .projects-list-container
+  .project-card
+  .project-card-content
+  .project-card-buttons
+  a {
+  all: unset;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+#projects
+  .projects-list-container
+  .project-card
+  .project-card-content
+  .project-card-buttons
+  a:hover {
+  transform: scale(1.2);
+}
+
+/* #projects #carouselExampleIndicators {
   margin-top: 2rem;
   margin-bottom: 6rem;
   width: 50%;
@@ -314,7 +501,7 @@ header .header-btn:hover::before {
 
 #projects .carousel-indicators > button {
   width: 10%;
-}
+} */
 
 /* End of projects section */
 /* Start of contact section */
@@ -327,7 +514,7 @@ header .header-btn:hover::before {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--bgColor);
+  /* background-color: var(--bgColor); */
 }
 
 #contact > p {
@@ -377,15 +564,15 @@ header .header-btn:hover::before {
   width: 40%;
   text-align: center;
   text-decoration: none;
-  color: white;
-  border: 1px solid white;
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
   padding: 10px 20px;
   font-weight: 600;
 }
 
 .downloadCV-Btn:hover {
-  color: #131722;
-  background-color: white;
+  color: var(--bgColor);
+  background-color: var(--textColor);
 }
 
 @keyframes left-to-right-animation {
