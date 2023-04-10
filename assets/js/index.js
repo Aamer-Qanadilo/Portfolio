@@ -72,3 +72,32 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
+
+// var box = $(".header-bg .box");
+var box = document.querySelector(".header-bg");
+
+var layer = document.getElementById("home");
+// $("#home");
+
+layer.addEventListener("mousemove", function (e) {
+  console.log("test");
+  var ivalueX = (e.pageX * -1) / 10;
+  var ivalueY = (e.pageY * -1) / 10;
+  var cvalueX = (e.pageX * -1) / 30;
+  var cvalueY = (e.pageY * -1) / 30;
+  console.log("ok");
+  // iphone.css('transform', 'translate3d('+ivalueX+'px,'+ivalueY+'px, 0)');
+  // box.css("transform", "translate3d(" + cvalueX + "px," + cvalueY + "px, 0)");
+  // box.
+  console.log(box.children);
+  Array.from(box.children).forEach((child, index) => {
+    console.log(child);
+    if (index / 2 === 0) {
+      child.style.transform =
+        "translate3d(" + cvalueX + "px," + cvalueY + "px, 0)";
+    } else {
+      child.style.transform =
+        "translate3d(" + ivalueX + "px," + ivalueY + "px, 0)";
+    }
+  });
+});

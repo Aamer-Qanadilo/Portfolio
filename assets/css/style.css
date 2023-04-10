@@ -10,7 +10,10 @@
   --navbarColor50: rgba(26, 30, 41, 0.95);
   --textColor: rgb(243, 239, 239);
   --secondaryBGColor: rgb(189, 182, 182);
+  --boxShadow: 0 2px 15px -3px rgba(255, 255, 255, 0.07),
+    0 10px 20px -2px rgba(255, 255, 255, 0.04);
   --navbarButton: 30px;
+  --paragraphOpacity: 75%;
 }
 
 html {
@@ -25,22 +28,25 @@ body {
   margin: 0px;
   background-color: var(--bgColor);
   font-family: "Montserrat Alternates";
+  font-size: 16px;
   color: var(--textColor);
   overflow-x: hidden;
 }
 
 body.light {
-  --bgColor: #fbfbfd;
+  --bgColor: #e9e9eb;
   --secondaryBGColor: #000;
   --textColor: #000;
-  --navbarColor: #838282;
-  color: #000;
+  --navbarColor: #292929;
+  --boxShadow: 0 2px 15px -3px rgba(0, 0, 0, 0.2),
+    0 10px 20px -2px rgba(0, 0, 0, 0.2);
+  --paragraphOpacity: 90%;
 }
 
 .section-seperator {
   width: 80%;
   height: 1px;
-  opacity: 50%;
+  opacity: var(--paragraphOpacity);
   background-color: var(--textColor);
   margin: 3rem auto;
   position: relative;
@@ -261,7 +267,7 @@ header .header-content {
   font-size: 1.35rem;
 }
 header .header-content p {
-  opacity: 50%;
+  opacity: var(--paragraphOpacity);
   font-size: 0.9rem;
   word-spacing: 2px;
   line-height: 25px;
@@ -310,6 +316,26 @@ header .header-btn:hover::after,
 header .header-btn:hover::before {
   border-radius: 0;
   width: 100%;
+}
+
+.header-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: end;
+}
+
+.header-bg .box {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  background-color: red;
 }
 
 /* End of header section */
@@ -361,7 +387,8 @@ header .header-btn:hover::before {
   color: var(--textColor);
   word-spacing: 5px;
   line-height: 25px;
-  opacity: 75%;
+
+  opacity: var(--paragraphOpacity);
 }
 
 #about .about-list-2,
@@ -399,25 +426,22 @@ header .header-btn:hover::before {
   align-items: center;
   gap: 20px;
   width: 80%;
-  /* padding: 10px; */
   overflow: hidden;
-  /* border-radius: 5px; */
   border-radius: 0.5rem;
-  box-shadow: 0 2px 15px -3px rgba(255, 255, 255, 0.07),
-    0 10px 20px -2px rgba(255, 255, 255, 0.04);
-  /* box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.744); */
-  /* box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.744); */
-  transition: all 0.2s ease-in-out;
+  box-shadow: var(--boxShadow);
+  transition: transform 0.1s ease-in-out;
   bottom: 0;
-  /* flex-wrap: wrap; */
+  border: 1px ridge var(--textColor);
 }
 
+/* body.light #projects .projects-list-container .project-card {
+} */
+
 #projects .projects-list-container .project-card:nth-child(even) {
-  justify-content: end;
+  justify-content: space-between;
 }
 
 #projects .projects-list-container .project-card:hover {
-  /* bottom: 3px; */
   box-shadow: none;
   transform: scale(0.975);
 }
@@ -439,12 +463,8 @@ header .header-btn:hover::before {
   justify-content: center;
   width: auto;
   text-align: start;
-  /* min-width: 30%;
-  max-width: 40%; */
   height: fit-content;
   padding: 15px;
-  /* border: 1px solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0.5rem 1rem rgba(255, 255, 255, 0.062); */
 }
 
 #projects .projects-list-container .project-card .project-card-content h3 {
@@ -456,7 +476,8 @@ header .header-btn:hover::before {
 #projects .projects-list-container .project-card .project-card-content p {
   max-width: 650px;
   font-size: 0.8rem;
-  opacity: 0.75;
+
+  opacity: var(--paragraphOpacity);
   margin: 1.5rem 0;
 }
 
@@ -518,7 +539,7 @@ header .header-btn:hover::before {
 }
 
 #contact > p {
-  opacity: 75%;
+  opacity: var(--paragraphOpacity);
   max-width: 650px;
   text-align: center;
   line-height: 25px;
@@ -545,7 +566,7 @@ header .header-btn:hover::before {
   text-decoration: none;
   color: var(--bgColor);
   font-size: 1.3rem;
-  transition: all 0.1s ease-in-out;
+  transition: transform 0.1s ease-in-out;
 }
 
 #contact .projects-list .fa-youtube {
@@ -568,12 +589,40 @@ header .header-btn:hover::before {
   border: 1px solid var(--textColor);
   padding: 10px 20px;
   font-weight: 600;
+  border-radius: 20px;
 }
 
 .downloadCV-Btn:hover {
   color: var(--bgColor);
   background-color: var(--textColor);
 }
+
+/* Styles only when light mode */
+
+body.light #contact .projects-list li a {
+  background-color: var(--bgColor);
+  border: 1px solid var(--textColor);
+}
+
+body.light #contact .projects-list li a.fa-github {
+  color: var(--textColor);
+}
+
+body.light .navbar-section {
+  color: var(--bgColor);
+}
+
+body.light .navbar-section .navbar-selectors li a {
+  color: var(--bgColor);
+}
+
+body.light .navbar-section .nav-bars-button .nav-bars-button-inner,
+body.light .navbar-section .nav-bars-button .nav-bars-button-inner::before,
+body.light .navbar-section .nav-bars-button .nav-bars-button-inner::after {
+  background-color: var(--bgColor);
+}
+
+/*End of Styles light mode */
 
 @keyframes left-to-right-animation {
   from {
@@ -590,6 +639,24 @@ header .header-btn:hover::before {
   }
   to {
     right: 0px;
+  }
+}
+
+@media (max-width: 1150px) {
+  #projects .projects-list-container .project-card {
+    flex-direction: column;
+    max-width: 650px;
+  }
+
+  #projects .projects-list-container .project-card .project-card-img {
+    width: auto;
+    order: unset !important;
+  }
+
+  #projects .projects-list-container .project-card .project-card-content {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -642,7 +709,7 @@ header .header-btn:hover::before {
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
   .navbar-section {
     padding: 15px 20px;
   }
