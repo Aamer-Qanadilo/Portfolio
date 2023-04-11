@@ -897,9 +897,13 @@ body.light #projects .projects-list-container .project-card {
     flex-direction: column;
     gap: 50px;
   }
+
+  #skills .skills-content {
+    width: 100%;
+  }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 740px) {
   .navbar-section {
     padding: 15px 20px;
   }
@@ -937,6 +941,8 @@ body.light #projects .projects-list-container .project-card {
 
   .navbar-section .navbar-selectors li a {
     font-size: 1.2rem;
+    width: 100%;
+    display: block;
   }
 
   .navbar-section .nav-bars-button.active .nav-bars-button-inner {
