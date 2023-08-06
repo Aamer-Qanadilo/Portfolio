@@ -1,0 +1,107 @@
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+header .header__img {
+  position: relative;
+  left: 0px;
+  animation: left-to-right-animation 1.2s 1;
+}
+header .header__img img {
+  width: 100%;
+}
+
+header .header__content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  right: 0px;
+  animation: right-to-left-animation 1.2s 1;
+  font-size: 1.35rem;
+}
+header .header__content p {
+  opacity: var(--paragraphOpacity);
+  font-size: 0.9rem;
+  word-spacing: 2px;
+  line-height: 25px;
+  width: 45ch;
+}
+
+header .header__call-to-action-btn {
+  display: block;
+  position: relative;
+  width: fit-content;
+  text-decoration: none;
+  color: var(--textColor);
+  padding: 5px 25px;
+  border: 2px solid #8b929e;
+  border-radius: 10px;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+header .header__call-to-action-btn::before,
+header .header__call-to-action-btn::after {
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 100%;
+  transition: all 0.4s ease-in-out;
+  z-index: -1;
+  background-color: #8b929e;
+}
+
+header .header__call-to-action-btn::before {
+  border-bottom-right-radius: 80%;
+  border-top-right-radius: 80%;
+  left: 0;
+  top: 0;
+}
+
+header .header__call-to-action-btn::after {
+  border-top-left-radius: 80%;
+  border-bottom-left-radius: 80%;
+  right: 0;
+  top: 0;
+}
+
+header .header__call-to-action-btn:hover::after,
+header .header__call-to-action-btn:hover::before {
+  border-radius: 0;
+  width: 100%;
+}
+
+/* .header-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: end;
+  overflow: hidden;
+}
+
+.header-bg .box {
+  position: relative;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  opacity: 0.5;
+  background-color: var(--textColor);
+  animation: movedBoxes 10s infinite 0s;
+  transition: all 0.1s ease-in-out;
+}
+
+.header-bg .box:nth-child(even) {
+  animation-direction: reverse;
+  animation-duration: 8s;
+} */

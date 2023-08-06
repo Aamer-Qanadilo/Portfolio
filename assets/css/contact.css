@@ -1,0 +1,69 @@
+#contact {
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-color: var(--bgColor); */
+}
+
+#contact > p {
+  opacity: var(--paragraphOpacity);
+  max-width: 650px;
+  text-align: center;
+  line-height: 25px;
+}
+
+#contact .projects-list {
+  margin: 0 0 4rem 0;
+  list-style-type: none;
+  display: flex;
+  column-gap: 40px;
+  padding: 0;
+  justify-content: center;
+}
+
+#contact .projects-list li a {
+  position: relative;
+  background-color: var(--textColor);
+  display: flex;
+  height: 45px;
+  width: 45px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  text-decoration: none;
+  color: var(--bgColor);
+  font-size: 1.3rem;
+  transition: transform 0.1s ease-in-out;
+}
+
+#contact .projects-list .fa-youtube {
+  color: red;
+}
+
+#contact .projects-list .fa-linkedin {
+  color: #0a66c2;
+}
+
+#contact .projects-list li a:hover {
+  transform: scale(1.15);
+}
+
+.downloadCV-Btn {
+  width: 40%;
+  text-align: center;
+  text-decoration: none;
+  color: var(--textColor);
+  border: 1px solid var(--textColor);
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 20px;
+}
+
+.downloadCV-Btn:hover {
+  color: var(--bgColor);
+  background-color: var(--textColor);
+}

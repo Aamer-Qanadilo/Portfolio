@@ -1,0 +1,82 @@
+.toggle-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+label {
+  width: 50px;
+  height: 25px;
+  position: relative;
+  display: block;
+  background: #242424;
+  border-radius: 200px;
+  box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4),
+    inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: 0.3s;
+  overflow: hidden;
+}
+
+label:after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 3px;
+  border-radius: 18px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+  transition: 0.3s;
+}
+
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+input:checked + label {
+  background: #ebebeb;
+}
+
+input:checked + label:after {
+  left: auto;
+  right: 3px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  /* transform: translateX(-100%); */
+}
+
+label:active:after {
+  width: 260px;
+}
+
+label svg {
+  position: absolute;
+  width: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+}
+
+label svg.sun {
+  right: 6px;
+  fill: #7e7e7e;
+  transition: 0.3s;
+}
+
+label svg.moon {
+  left: 6px;
+  fill: #fff;
+  transition: 0.3s;
+}
+
+input:checked + label svg.sun {
+  fill: #fff;
+}
+
+input:checked + label svg.moon {
+  fill: #7e7e7e;
+}

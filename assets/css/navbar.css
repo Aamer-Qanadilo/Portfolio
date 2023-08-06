@@ -1,0 +1,88 @@
+.navbar {
+  background-color: var(--navbarColor);
+  display: flex;
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 9;
+  padding: 12px 20px;
+}
+
+.navbar .navbar__ham-button {
+  display: none;
+  border: 0;
+  width: var(--navbarButton);
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--textColor);
+}
+
+.navbar .navbar__ham-button .navbar__ham-button-box {
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .navbar__ham-button .navbar__ham-button-inner {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: var(--textColor);
+  border-radius: var(--navbarButton);
+  transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+  transform: rotate(0deg);
+}
+
+.navbar .navbar__ham-button .navbar__ham-button-inner::before,
+.navbar .navbar__ham-button .navbar__ham-button-inner::after {
+  content: "";
+  border-radius: var(--navbarButton);
+  position: absolute;
+  right: 0;
+  height: 2px;
+  background-color: var(--textColor);
+}
+
+.navbar .navbar__ham-button .navbar__ham-button-inner::before {
+  width: 120%;
+  top: -8px;
+}
+
+.navbar .navbar__ham-button .navbar__ham-button-inner::after {
+  width: 80%;
+  top: 8px;
+  transition: transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+  transform: rotate(0deg);
+}
+
+.navbar .navbar__logo {
+  margin-left: 1.5rem;
+  text-shadow: 2px 4px 6px var(--textColor);
+  cursor: pointer;
+}
+
+.navbar .navbar__ham-menu {
+  list-style-type: none;
+  display: flex;
+  column-gap: 1.2rem;
+  margin-right: 1.5rem;
+  transition: all 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
+}
+
+.navbar .navbar__ham-menu li a {
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--textColor);
+  font-size: 0.8rem;
+  transition: all 0.25s ease-in-out;
+}
+
+.navbar .navbar__ham-menu li:hover a {
+  color: #e34643;
+  font-weight: 700;
+}
