@@ -1,0 +1,76 @@
+#skills {
+  display: flex;
+  flex-direction: column;
+}
+
+#skills .skills-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#skills .skills-img {
+  width: 20%;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--barShadow);
+}
+
+#skills .skills-img img {
+  width: 100%;
+}
+
+#skills .skills-content {
+  width: 50%;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#skills .skills-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+}
+
+#skills .skills-list .skills-list-item {
+  position: relative;
+  max-width: 90%;
+  height: 35px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(--navbarColor);
+  color: white;
+  box-shadow: var(--barShadow);
+}
+
+#skills .skills-list .skills-list-item .skill-percent {
+  position: absolute;
+  z-index: 1;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+}
+
+#skills .skills-list .skills-list-item .skill-bar {
+  position: relative;
+  height: 100%;
+  background-color: var(--barBackground);
+}
+
+#skills .skills-list .skills-list-item .skill-bar .skill-name {
+  position: absolute;
+  /* color: var(--bgColor); */
+  left: 10px;
+  height: fit-content;
+  width: fit-content;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+}
