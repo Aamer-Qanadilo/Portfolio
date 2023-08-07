@@ -221,6 +221,15 @@ body.light #projects .projects__list .projects__card {
   #skills .skills-content {
     width: 100%;
   }
+
+  #skills .skills-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+
+  #skills .skills-content {
+    width: 100%;
+  }
 }
 
 @media (max-width: 700px) {
