@@ -30,7 +30,7 @@
     flex-direction: column;
   }
 
-  .about__image {
+  #about .about__image {
     order: 1;
   }
 

@@ -37,6 +37,7 @@
 
 .testimonial-card .review-description {
   margin: 35px 0;
+  font-size: 0.8rem;
 }
 
 .testimonial-card .review-platform {
@@ -56,6 +57,7 @@
   padding-top: 20px;
   border-top: 1px solid var(--textColor);
   font-weight: bold;
+  font-size: 0.7rem;
 }
 
 .testimonial-card .review-link-icon {

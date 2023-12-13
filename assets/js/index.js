@@ -29,40 +29,4 @@ function reveal() {
   }
 }
 
-// const box = document.querySelector(".header-bg");
-
-const layer = document.getElementById("header");
-
-const headerContent = document.querySelector(".header__content");
-const headerImage = document.querySelector(".header__img");
-
-layer.addEventListener("mousemove", function (e) {
-  let fastValueX = (e.pageX * -1) / 10;
-  let fastValueY = (e.pageY * -1) / 10;
-  let slowValueX = (e.pageX * -1) / 30;
-  let slowValueY = (e.pageY * -1) / 30;
-
-  headerContent.style.transform =
-    "translate3d(" + fastValueX + "px," + fastValueY + "px, 0)";
-
-  headerImage.style.transform =
-    "translate3d(" + slowValueX + "px," + slowValueY + "px, 0)";
-
-  // Array.from(box.children).forEach((child, index) => {
-  //   fastValueX = (e.pageX * -1) / (10 - index);
-  //   fastValueY = (e.pageY * -1) / (10 + index);
-  //   slowValueX = (e.pageX * -1) / (30 - index);
-  //   slowValueY = (e.pageY * -1) / (30 + index);
-
-  //   child.style.transform =
-  //     "translate3d(" + fastValueX + "px," + fastValueY + "px, 0)";
-  // });
-});
-
 window.addEventListener("scroll", reveal);
-
-// window.onload = () => {
-//   Array.from(box.children).forEach((child, index) => {
-//     child.style.left = `${(index + 1) * 50}px`;
-//   });
-// };
